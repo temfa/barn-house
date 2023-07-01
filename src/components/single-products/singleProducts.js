@@ -51,7 +51,7 @@ const SingleProducts = ({ price, discount, name, img }) => {
             alt="cart"
             onClick={() => {
               let tempData = cookies.get("Cart");
-              if (tempData === "undefined") {
+              if (tempData === undefined) {
                 tempData = data;
               } else {
                 let itemInCart = tempData.find((item) => item.name === name);

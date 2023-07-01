@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./cart.css";
 import Layout from "../../utils/layout/layout";
 import SingleCart from "../single-cart/singleCart";
@@ -7,13 +7,11 @@ import { ToastContainer, toast } from "react-toastify";
 import CartCheckout from "../cart-checkout/cartCheckout";
 
 const Cart = () => {
-  const cookies = useMemo(() => {
-    new Cookies();
-  }, []);
-  const [cart, setCart] = useState(cookies.get("Cart"));
+  const cookies = new Cookies();
+  const [cart, setCart] = useState(cookies === undefined ? [] : cookies.get("Cart"));
   useEffect(() => {
     cookies.set("Cart", cart);
-  }, [cart, cookies]);
+  });
   return (
     <Layout>
       <ToastContainer />
