@@ -1,0 +1,39 @@
+.we-offer-container {
+  width: 100%;
+  margin-bottom: 135px;
+}
+
+.we-offer-container > h2 {
+  color: var(--text, #151875);
+  margin-bottom: 55px;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.we-offer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.we-offer-single {
+  width: 23%;
+  max-width: 270px;
+}
+
+@media screen and (max-width: 600px) {
+  .we-offer-container > h2 {
+    font-size: 24px;
+  }
+
+  .we-offer-wrapper {
+    flex-direction: column;
+  }
+
+  .we-offer-single {
+    width: 90%;
+    margin: 10px auto;
+    max-width: 100%;
+  }
+}

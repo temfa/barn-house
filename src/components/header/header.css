@@ -1,0 +1,128 @@
+.header-container {
+  width: 100%;
+  position: sticky;
+  z-index: 20;
+  box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+  background-color: #ffffff !important;
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  top: 0;
+}
+
+.header-contact {
+  background-color: #5d5e8f;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-details,
+.header-cart div {
+  display: flex;
+  align-items: center;
+}
+
+.header-details div {
+  display: flex;
+  align-items: center;
+  margin-right: 48px;
+}
+
+.header-details div p,
+.header-cart div p,
+.header-details div a {
+  font-size: 16px;
+  line-height: 18.75px;
+  color: #f1f1f1;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.header-cart div {
+  cursor: pointer;
+}
+
+.header-body {
+  width: 100%;
+  padding: 22px 0px;
+}
+
+.header-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo h2 {
+  color: #0d0e43;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.header-logo img {
+  display: none;
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  width: 27%;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.header-search input {
+  border: none;
+  border: 2px solid #e7e6ef;
+  height: 36px;
+  width: 84%;
+  padding: 0px 10px;
+}
+
+.header-search input:focus {
+  outline: none;
+}
+
+.header-search div {
+  width: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fb2e86;
+  height: 100%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .header-bar,
+  .header-details {
+    flex-direction: column;
+    align-items: unset;
+    width: 100%;
+  }
+
+  .header-details div {
+    margin-bottom: 10px;
+  }
+
+  .header-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header-logo img {
+    display: block;
+    cursor: pointer;
+  }
+
+  .header-search {
+    display: none;
+  }
+}

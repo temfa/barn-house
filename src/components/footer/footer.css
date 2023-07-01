@@ -1,0 +1,38 @@
+.footer-container {
+  width: 100%;
+  background: #e7e4f8;
+  padding: 17px 0px;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-wrapper p {
+  color: #9da0ae;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-socials img {
+  display: block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .footer-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .footer-wrapper p {
+    margin-top: 20px;
+  }
+}

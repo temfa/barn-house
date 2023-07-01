@@ -1,0 +1,35 @@
+.banner-container {
+  width: 100%;
+  padding: 96px 0px 126px;
+  background-color: #f6f5ff;
+}
+
+.banner-container h2 {
+  color: #101750;
+  margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.banner-container p {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.banner-container p span {
+  color: var(--pink, #fb2e86);
+  margin-left: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 500px) {
+  .banner-container {
+    padding: 46px 0px;
+  }
+
+  .banner-container h2 {
+    font-size: 24px;
+  }
+}

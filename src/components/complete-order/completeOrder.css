@@ -1,0 +1,56 @@
+.complete-order-container {
+  width: 57%;
+  margin: 87px auto;
+  box-sizing: border-box;
+}
+
+.complete-order-check {
+  width: 65px;
+  height: 65px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0px auto;
+}
+
+.complete-order-container > h2,
+.bank-details > h2 {
+  color: #101750;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+.complete-order-container > p {
+  color: #8d92a7;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.complete-order-container button {
+  padding: 16px 36px;
+  margin: 10px auto;
+  display: block;
+  border: none;
+  cursor: pointer;
+  color: var(--white, #fff);
+  text-align: center;
+  font-size: 16px;
+  border-radius: 3px;
+  background: #ff1788;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .complete-order-container {
+    width: 100%;
+  }
+
+  .complete-order-container > h2,
+  .bank-details > h2 {
+    font-size: 24px;
+  }
+}
