@@ -168,3 +168,23 @@
   cursor: pointer;
   line-height: 25.6px;
 }
+
+@media screen and (max-width: 500px) {
+  .contactus-container {
+    margin: 50px 0px;
+  }
+
+  .contactus-first,
+  .contactus-second {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .contactus-contact,
+  .get-in-img,
+  .contactus-info,
+  .get-in-touch,
+  .get-in-img img {
+    width: 100%;
+  }
+}
