@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import "./productsDetails.css";
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
-import Banner from "../../components/banner/banner";
+import Header from "../../components/reusable-components/header/header";
+import Footer from "../../components/reusable-components/footer/footer";
+import Banner from "../../components/reusable-components/banner/banner";
 import { useLocation } from "react-router-dom";
-import ProductDetails from "../../components/product-details/productDetails";
+import ProductDetails from "../../components/non-resuable-components/product-details/productDetails";
 
 const ProductsDetails = () => {
   const useQuery = () => {

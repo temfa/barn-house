@@ -1047,3 +1047,22 @@ export const location = [
     ],
   },
 ];
+
+export const faq = [
+  {
+    title: "Eu dictumst cum at sed euismood condimentum?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+  },
+  {
+    title: "Eu dictumst cum at sed euismood condimentum?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+  },
+  {
+    title: "Eu dictumst cum at sed euismood condimentum?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+  },
+  {
+    title: "Eu dictumst cum at sed euismood condimentum?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+  },
+];

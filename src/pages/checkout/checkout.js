@@ -1,9 +1,9 @@
 import React from "react";
 import "./checkout.css";
-import Header from "../../components/header/header";
-import Banner from "../../components/banner/banner";
-import Footer from "../../components/footer/footer";
-import CheckoutPage from "../../components/checkout-page/checkoutPage";
+import Header from "../../components/reusable-components/header/header";
+import Banner from "../../components/reusable-components/banner/banner";
+import Footer from "../../components/reusable-components/footer/footer";
+import CheckoutPage from "../../components/non-resuable-components/checkout-page/checkoutPage";
 
 const Checkout = () => {
   return (

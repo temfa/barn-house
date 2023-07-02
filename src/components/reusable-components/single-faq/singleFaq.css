@@ -1,0 +1,18 @@
+.single-faq-container {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.single-faq-container h2 {
+  color: #1d3178;
+  font-size: 17px;
+  margin-bottom: 13px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.single-faq-container p {
+  color: #a1abcc;
+  font-size: 16px;
+  line-height: 30px;
+}

@@ -1,0 +1,28 @@
+.inputs {
+  padding: 13px 11px;
+  border-radius: 3px;
+  border: 1px solid rgba(164, 182, 200, 0.7);
+  color: var(--sub-text-color, #8a8fb9);
+  font-size: 16px;
+  letter-spacing: 0.16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.inputs:focus {
+  outline: none;
+}
+
+.text-area {
+  border-radius: 3px;
+  border: 1px solid rgba(164, 182, 200, 0.7);
+  padding: 17px 11px;
+  display: block;
+  height: 166px;
+  box-sizing: border-box;
+  margin-bottom: 33px;
+  color: var(--sub-text-color, #8a8fb9);
+  font-size: 16px;
+  letter-spacing: 0.16px;
+  width: 100%;
+}

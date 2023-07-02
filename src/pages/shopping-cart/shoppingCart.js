@@ -1,9 +1,9 @@
 import React from "react";
 import "./shoppingCart.css";
-import Header from "../../components/header/header";
-import Banner from "../../components/banner/banner";
-import Footer from "../../components/footer/footer";
-import Cart from "../../components/cart/cart";
+import Header from "../../components/reusable-components/header/header";
+import Banner from "../../components/reusable-components/banner/banner";
+import Footer from "../../components/reusable-components/footer/footer";
+import Cart from "../../components/non-resuable-components/cart/cart";
 
 const ShoppingCart = () => {
   return (

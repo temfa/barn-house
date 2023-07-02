@@ -1,8 +1,8 @@
 import React from "react";
 import "./about.css";
-import Header from "../../components/header/header";
-import Banner from "../../components/banner/banner";
-import Footer from "../../components/footer/footer";
+import Header from "../../components/reusable-components/header/header";
+import Banner from "../../components/reusable-components/banner/banner";
+import Footer from "../../components/reusable-components/footer/footer";
 
 const About = () => {
   return (
