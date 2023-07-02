@@ -12,7 +12,7 @@ const CartCheckout = ({ cart }) => {
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   useEffect(() => {
-    if (cart === "undefined") {
+    if (cart === undefined) {
       setSubTotal(0);
     } else {
       if (cart.length === 0) {

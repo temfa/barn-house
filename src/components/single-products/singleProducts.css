@@ -58,3 +58,9 @@
   cursor: pointer;
   margin-top: 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .single-products-action img {
+    width: 30px;
+  }
+}

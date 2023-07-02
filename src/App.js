@@ -6,6 +6,9 @@ import ProductsDetails from "./pages/products-details/productsDetails";
 import ShoppingCart from "./pages/shopping-cart/shoppingCart";
 import Checkout from "./pages/checkout/checkout";
 import OrderCompleted from "./pages/order-completed/orderCompleted";
+import Contact from "./pages/contact/contact";
+import About from "./pages/about/about";
+import Faq from "./pages/faq/faq";
 
 const App = () => {
   const variants = {
@@ -31,6 +34,9 @@ const App = () => {
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-completed" element={<OrderCompleted />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<Faq />} />
           </Routes>
         </div>
       </motion.div>
