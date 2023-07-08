@@ -22,7 +22,7 @@ const ProductDetails = ({ name }) => {
         Object.entries(data.products).filter((item) => {
           if (item[1].productName === name) {
             setData(item[1]);
-            setImg(item[1].imgUrl);
+            setImg(item[1].firstImg);
           }
           return item;
         });
@@ -38,6 +38,8 @@ const ProductDetails = ({ name }) => {
       price: data?.price - data?.discountPrice,
       img: data?.imgUrl,
       count: 1,
+      uniqueName: data?.uniqueName,
+      quantity: data?.quantity,
     },
   ];
   return (
@@ -51,17 +53,17 @@ const ProductDetails = ({ name }) => {
             <div className="product-details-img">
               <div className="product-details-small">
                 <img
-                  src={data.imgUrl}
+                  src={data.firstImg}
                   alt="logog"
                   onClick={() => {
-                    setImg(data.imgUrl);
+                    setImg(data.firstImg);
                   }}
                 />
                 <img
-                  src={data.imgUrl}
+                  src={data.secondImg}
                   alt="logog"
                   onClick={() => {
-                    setImg(data.imgUrl);
+                    setImg(data.secondImg);
                   }}
                 />
               </div>
@@ -74,7 +76,7 @@ const ProductDetails = ({ name }) => {
               <p>
                 {formatter.format(data.price - data.discountPrice)} <span>{formatter.format(data.price)}</span>
               </p>
-              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.</h3>
+              <h3>{data.description}</h3>
               <button
                 onClick={() => {
                   let tempData = cookies.get("Cart");
@@ -99,6 +101,8 @@ const ProductDetails = ({ name }) => {
                         price: data?.price - data?.discountPrice,
                         img: data?.imgUrl,
                         count: 1,
+                        uniqueName: data?.uniqueName,
+                        quantity: data?.quantity,
                       });
                     }
                   }

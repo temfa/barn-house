@@ -37,7 +37,14 @@ const LandingProducts = () => {
             {Object.entries(data)?.map((item, index) => {
               return (
                 <div className="landing-products-single" key={index}>
-                  <SingleProducts price={item[1].price} discount={item[1].discountPrice} name={item[1].productName} img={item[1].imgUrl} />
+                  <SingleProducts
+                    price={item[1].price}
+                    discount={item[1].discountPrice}
+                    name={item[1].productName}
+                    img={item[1].firstImg}
+                    quantity={item[1].quantity}
+                    uniqueName={item[1].uniqueName}
+                  />
                 </div>
               );
             })}

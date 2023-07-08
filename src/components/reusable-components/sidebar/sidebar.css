@@ -1,0 +1,123 @@
+.sidebar-container {
+  border-right: 1px solid var(--neutral-gray-gray-50, #f0f1f3);
+  background: var(--neutral-white, #fff);
+  box-shadow: 4px 0px 30px 0px rgba(131, 98, 234, 0.05);
+  width: 264px;
+  height: 100vh;
+  padding: 18px 20px 24px;
+  box-sizing: border-box;
+}
+
+.sidebar-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-container-header div {
+  width: 100%;
+}
+
+.sidebar-container-header div img {
+  width: 70%;
+  margin: 0px auto;
+}
+
+.sidebar-container-header > img {
+  display: none;
+}
+
+.sidebar-nav {
+  display: flex;
+  padding: 24px 0px 32px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.sidebar-nav-single,
+.sidebar-nav-active {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sidebar-nav-single div,
+.sidebar-nav-active div {
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-nav-single span,
+.sidebar-nav-active span {
+  border-radius: 100px;
+  background: var(--secondary-red-red-500, #f04438);
+  color: var(--neutral-white, #fff);
+  font-size: 10px;
+  padding: 2px 6px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136%;
+  letter-spacing: 0.05px;
+}
+
+.sidebar-nav-single p {
+  color: var(--neutral-black-black-500, #667085);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+}
+
+.sidebar-nav-active,
+.sidebar-nav-single:hover {
+  border-radius: 8px;
+  background: var(--primary-primary-500, #5c59e8);
+}
+
+.sidebar-nav-active p,
+.sidebar-nav-single:hover p {
+  color: var(--neutral-white, #fff);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+}
+
+@media screen and (max-width: 500px) {
+  .sidebar-container {
+    width: 100%;
+    position: absolute;
+    left: -100%;
+    z-index: 10;
+    transition: 1s all ease-in;
+  }
+
+  .sidebar-active {
+    left: 0px;
+  }
+
+  .sidebar-container-header div {
+    width: 50%;
+  }
+
+  .sidebar-container-header div img {
+    width: 100%;
+  }
+
+  .sidebar-container-header img {
+    display: block;
+    cursor: pointer;
+  }
+}

@@ -9,6 +9,12 @@ import OrderCompleted from "./pages/order-completed/orderCompleted";
 import Contact from "./pages/contact/contact";
 import About from "./pages/about/about";
 import Faq from "./pages/faq/faq";
+import AdminLogin from "./pages/admin/admin-login/admin-login";
+import Dashboard from "./pages/admin/dashboard/dashboard";
+import ProductList from "./pages/admin/product-list/productList";
+import AddProducts from "./pages/admin/add-products/addProducts";
+import Orders from "./pages/admin/orders/orders";
+import SingleOrder from "./pages/admin/single-order/singleOrder";
 
 const App = () => {
   const variants = {
@@ -37,6 +43,12 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/orders" element={<Orders />} />
+            <Route path="/admin/single-order" element={<SingleOrder />} />
+            <Route path="/admin/product-list" element={<ProductList />} />
+            <Route path="/admin/product-list/add-products" element={<AddProducts />} />
           </Routes>
         </div>
       </motion.div>

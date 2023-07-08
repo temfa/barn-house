@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "universal-cookie";
 
-const SingleProducts = ({ price, discount, name, img }) => {
+const SingleProducts = ({ price, discount, name, img, quantity, uniqueName }) => {
   const [active, setActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -20,6 +20,8 @@ const SingleProducts = ({ price, discount, name, img }) => {
       price: price - discount,
       img,
       count: 1,
+      quantity,
+      uniqueName,
     },
   ];
   return (
@@ -72,6 +74,8 @@ const SingleProducts = ({ price, discount, name, img }) => {
                     price: price - discount,
                     img,
                     count: 1,
+                    quantity,
+                    uniqueName,
                   });
                 }
               }

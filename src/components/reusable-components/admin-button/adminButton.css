@@ -1,0 +1,13 @@
+.admin-button {
+  border-radius: 8px;
+  background: var(--primary-primary-500, #5c59e8);
+  padding: 10px 14px;
+  color: var(--neutral-white, #fff);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+  border: none;
+  cursor: pointer;
+}

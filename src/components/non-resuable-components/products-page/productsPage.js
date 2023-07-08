@@ -20,6 +20,7 @@ const ProductsPage = () => {
         setData(data.products);
       } else {
         setLoading(false);
+        setData([]);
         toast.error("Something went wrong!!!Try again");
       }
     });
@@ -54,7 +55,14 @@ const ProductsPage = () => {
                 ?.map((item, index) => {
                   return (
                     <div className="products-page-single" key={index}>
-                      <SingleProducts price={item[1].price} discount={item[1].discountPrice} name={item[1].productName} img={item[1].imgUrl} />
+                      <SingleProducts
+                        price={item[1].price}
+                        discount={item[1].discountPrice}
+                        name={item[1].productName}
+                        img={item[1].firstImg}
+                        uniqueName={item[1].uniqueName}
+                        quantity={item[1].quantity}
+                      />
                     </div>
                   );
                 })}

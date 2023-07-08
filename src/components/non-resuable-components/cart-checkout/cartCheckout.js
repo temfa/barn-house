@@ -23,8 +23,8 @@ const CartCheckout = ({ cart }) => {
       } else {
         setSubTotal(
           cart?.reduce((a, b) => {
-            return a.price * a.count + b.price * b.count;
-          })
+            return a + b.price * b.count;
+          }, 0)
         );
       }
     }

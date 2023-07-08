@@ -1,0 +1,82 @@
+.orders-page-container {
+  width: 100%;
+}
+
+.orders-page-container > h2 {
+  color: var(--neutral-black-black-700, #333843);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.12px;
+}
+
+.orders-page-table {
+  border-radius: 8px;
+  border: 1px solid var(--neutral-gray-gray-100, #e0e2e7);
+  width: 100%;
+  box-shadow: 0px 1.5px 2px 0px rgba(16, 24, 40, 0.1);
+  margin-top: 24px;
+}
+
+.orders-table-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--neutral-gray-gray-50, #f0f1f3);
+  background: var(--neutral-gray-gray-25, #f9f9fc);
+}
+
+.orders-table-head p {
+  color: var(--neutral-black-black-700, #333843);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+  padding: 18px 22px;
+  box-sizing: border-box;
+}
+
+.orders-table-head p:first-child {
+  width: 12%;
+}
+.orders-table-head p:nth-child(3) {
+  width: 17%;
+}
+
+.orders-table-head p:nth-child(2) {
+  width: 25%;
+}
+
+.orders-table-head p:nth-child(4) {
+  width: 25%;
+}
+
+.orders-table-head p:nth-child(5) {
+  width: 12%;
+}
+
+.orders-table-head p:nth-child(6) {
+  width: 13%;
+}
+
+.orders-table-head p:nth-child(7) {
+  width: 8%;
+}
+
+.no-orders {
+  text-align: center;
+  margin: 10px 0px;
+}
+
+@media screen and (max-width: 500px) {
+  .orders-table-head {
+    display: none;
+  }
+
+  .order-id {
+    cursor: pointer;
+  }
+}
