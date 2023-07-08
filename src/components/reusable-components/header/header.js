@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./header.css";
 import Layout from "../../../utils/layout/layout";
 import Envelope from "../../../assets/envelope.svg";
@@ -16,11 +16,7 @@ const Header = () => {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const [mobile, setMobile] = useState(true);
-  const [number, setNumber] = useState(true);
   const cart = cookies.get("Cart");
-  useEffect(() => {
-    setNumber(cart.length);
-  }, [cart]);
   const click = () => {
     setMobile(!mobile);
   };
@@ -45,7 +41,7 @@ const Header = () => {
                   navigate("/shopping-cart");
                 }}>
                 <img src={Cart} alt="cart" />
-                <p>My Cart {cart !== undefined ? <sup>{number}</sup> : null}</p>
+                <p>My Cart {cart?.length !== 0 ? cart !== undefined ? <sup>{cart.length}</sup> : null : null}</p>
               </div>
             </div>
           </div>
