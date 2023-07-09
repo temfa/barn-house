@@ -3,11 +3,14 @@ import "./adminLayout.css";
 import AdminHeader from "../../components/reusable-components/admin-header/adminHeader";
 import Sidebar from "../../components/reusable-components/sidebar/sidebar";
 import { auth } from "../firebase/firebase-config";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import Idle from "react-idle";
+import Cookies from "universal-cookie";
 
 const AdminLayout = ({ children, page }) => {
   const [click, setClick] = useState(true);
+  const cookies = new Cookies();
   const navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -16,13 +19,34 @@ const AdminLayout = ({ children, page }) => {
       }
     });
   }, [navigate]);
+  const preloadCornify = () => {
+    signOut(auth)
+      .then(() => {
+        cookies.remove("admin");
+        navigate("/admin-login");
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
   return (
     <div className="admin-layout-container">
+      <Idle
+        timeout={300000}
+        onChange={({ idle }) => {
+          if (idle) {
+            preloadCornify();
+          }
+        }}
+      />
       <Sidebar
         click={click}
         action={() => {
           setClick(!click);
         }}
+        logoutAction={preloadCornify}
       />
       <div className="admin-layout-body">
         <AdminHeader

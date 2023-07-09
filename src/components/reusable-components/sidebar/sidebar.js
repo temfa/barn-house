@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./sidebar.css";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { db } from "../../../utils/firebase/firebase-config";
 import { ref, onValue } from "firebase/database";
-import { signOut } from "firebase/auth";
-import { auth } from "../../../utils/firebase/firebase-config";
 import SidebarData from "../../../utils/data/sidebar";
 import Logout from "../../../assets/logout.svg";
 import Close from "../../../assets/times.svg";
 import Logo from "../../../assets/logo.png";
-import Cookies from "universal-cookie";
 
-const Sidebar = ({ click, action }) => {
+const Sidebar = ({ click, action, logoutAction }) => {
   const location = useLocation();
-  const cookies = new Cookies();
-  const navigate = useNavigate();
   const [count, setCount] = useState([]);
   const [color1, setColor1] = useState("#667085");
   const [color2, setColor2] = useState("#667085");
@@ -112,20 +107,7 @@ const Sidebar = ({ click, action }) => {
             </NavLink>
           );
         })}
-        <div
-          className="sidebar-nav-single"
-          onClick={() => {
-            signOut(auth)
-              .then(() => {
-                cookies.remove("admin");
-                navigate("/admin-login");
-                console.log("Signed out successfully");
-              })
-              .catch((error) => {
-                // An error happened.
-                console.log(error);
-              });
-          }}>
+        <div className="sidebar-nav-single" onClick={logoutAction}>
           <div>
             <img src={Logout} alt="logout" />
             <p>Logout</p>

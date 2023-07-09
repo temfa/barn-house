@@ -3,13 +3,14 @@ import "./productsSingle.css";
 import { formatter } from "../../../utils/formatter/formatter";
 import Delete from "../../../assets/trash.svg";
 import OutsideClick from "../outsideClick/outsideClick";
-import { db } from "../../../utils/firebase/firebase-config";
+import { db, storage } from "../../../utils/firebase/firebase-config";
 import { ref, remove } from "firebase/database";
+import { ref as imgref, deleteObject } from "firebase/storage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-const ProductsSingle = ({ price, stock, productName, img, date, uniqueName }) => {
+const ProductsSingle = ({ price, stock, productName, img, date, uniqueName, imageName, imageName2 }) => {
   const [state, setState] = useState(false);
   const navigate = new useNavigate();
   return (
@@ -47,10 +48,29 @@ const ProductsSingle = ({ price, stock, productName, img, date, uniqueName }) =>
                 <div>
                   <button
                     onClick={() => {
-                      remove(ref(db, "products/" + uniqueName)).then(() => {
-                        toast.success("Deleted Successfully");
-                        setState(false);
-                      });
+                      // Create a reference to the file to delete
+                      const desertRef = imgref(storage, `images/${imageName}`);
+                      const desertRef2 = imgref(storage, `images/${imageName2}`);
+
+                      // Delete the file
+                      deleteObject(desertRef)
+                        .then(() => {
+                          deleteObject(desertRef2)
+                            .then(() => {
+                              remove(ref(db, "products/" + uniqueName)).then(() => {
+                                toast.success("Deleted Successfully");
+                                setState(false);
+                              });
+                            })
+                            .catch((error) => {
+                              console.log(error);
+                              toast.error("Something Occured!! Please try again");
+                            });
+                        })
+                        .catch((error) => {
+                          console.log(error);
+                          toast.error("Something Occured!! Please try again");
+                        });
                     }}>
                     Yes
                   </button>

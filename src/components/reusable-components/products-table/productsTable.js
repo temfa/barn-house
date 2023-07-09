@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./productsTable.css";
 import Loader from "../loader/loader";
 import ProductsSingle from "../products-single/productsSingle";
-import { db } from "../../../utils/firebase/firebase-config";
+import { db, storage } from "../../../utils/firebase/firebase-config";
+import { ref as imgref, deleteObject } from "firebase/storage";
 import { ref, onValue, remove } from "firebase/database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -64,6 +65,8 @@ const ProductsTable = () => {
                     key={index}
                     price={item[1].price}
                     img={item[1].firstImg}
+                    imageName={item[1].imageName}
+                    imageName2={item[1].imageName2}
                     stock={item[1].quantity}
                     date={item[1].date}
                     uniqueName={item[1].uniqueName}
@@ -110,10 +113,29 @@ const ProductsTable = () => {
                             <div>
                               <button
                                 onClick={() => {
-                                  remove(ref(db, "products/" + items[1].uniqueName)).then(() => {
-                                    toast.success("Deleted Successfully");
-                                    setState("");
-                                  });
+                                  // Create a reference to the file to delete
+                                  const desertRef = imgref(storage, `images/${items[1].imageName}`);
+                                  const desertRef2 = imgref(storage, `images/${items[1].imageName2}`);
+
+                                  // Delete the file
+                                  deleteObject(desertRef)
+                                    .then(() => {
+                                      deleteObject(desertRef2)
+                                        .then(() => {
+                                          remove(ref(db, "products/" + items[1].uniqueName)).then(() => {
+                                            toast.success("Deleted Successfully");
+                                            setState(false);
+                                          });
+                                        })
+                                        .catch((error) => {
+                                          console.log(error);
+                                          toast.error("Something Occured!! Please try again");
+                                        });
+                                    })
+                                    .catch((error) => {
+                                      console.log(error);
+                                      toast.error("Something Occured!! Please try again");
+                                    });
                                 }}>
                                 Yes
                               </button>
