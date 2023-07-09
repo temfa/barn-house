@@ -3,15 +3,19 @@ import "./productsTable.css";
 import Loader from "../loader/loader";
 import ProductsSingle from "../products-single/productsSingle";
 import { db } from "../../../utils/firebase/firebase-config";
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, remove } from "firebase/database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { formatter } from "../../../utils/formatter/formatter";
 import Delete from "../../../assets/trash.svg";
+import OutsideClick from "../outsideClick/outsideClick";
+import { useNavigate } from "react-router-dom";
 
 const ProductsTable = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+  const [state, setState] = useState("");
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
       const data = snapshot.val();
@@ -47,16 +51,39 @@ const ProductsTable = () => {
       ) : (
         <>
           <div className="products-table-body">
-            {Object.entries(data)?.map((item, index) => {
-              return <ProductsSingle productName={item[1].productName} key={index} price={item[1].price} img={item[1].firstImg} stock={item[1].quantity} date={item[1].date} />;
-            })}
+            {Object.entries(data)
+              ?.sort((x, y) => {
+                let a = new Date(x[1].date);
+                let b = new Date(y[1].date);
+                return b - a;
+              })
+              ?.map((item, index) => {
+                return (
+                  <ProductsSingle
+                    productName={item[1].productName}
+                    key={index}
+                    price={item[1].price}
+                    img={item[1].firstImg}
+                    stock={item[1].quantity}
+                    date={item[1].date}
+                    uniqueName={item[1].uniqueName}
+                  />
+                );
+              })}
           </div>
-          <table class="table">
+          <table className="table">
             <tbody>
               {Object.entries(data)?.map((items, index) => {
                 return (
                   <tr key={index}>
-                    <td data-label="Product">{items[1].productName}</td>
+                    <td
+                      data-label="Product"
+                      className="product-name"
+                      onClick={() => {
+                        navigate(`/admin/edit-product?name=${items[1].productName}`);
+                      }}>
+                      {items[1].productName}
+                    </td>
                     <td data-label="Stock">{items[1].quantity}</td>
                     <td data-label="Price">{formatter.format(items[1].price)}</td>
                     <td data-label="Status">
@@ -65,8 +92,42 @@ const ProductsTable = () => {
                       </span>
                     </td>
                     <td data-label="Added">{items[1].date}</td>
-                    <td data-label="Action">
-                      <img src={Delete} alt="edit" />
+                    <td data-label="Action" className="action-delete">
+                      <img
+                        src={Delete}
+                        alt="edit"
+                        onClick={(e) => {
+                          setState(items[1].productName);
+                        }}
+                      />
+                      {state === items[1].productName ? (
+                        <OutsideClick
+                          onClickOutside={() => {
+                            setState("");
+                          }}>
+                          <div className="dispute">
+                            <h2>Are you sure you want to delete?</h2>
+                            <div>
+                              <button
+                                onClick={() => {
+                                  remove(ref(db, "products/" + items[1].uniqueName)).then(() => {
+                                    toast.success("Deleted Successfully");
+                                    setState("");
+                                  });
+                                }}>
+                                Yes
+                              </button>
+                              <button
+                                onClick={() => {
+                                  setState("");
+                                  console.log(state);
+                                }}>
+                                No
+                              </button>
+                            </div>
+                          </div>
+                        </OutsideClick>
+                      ) : null}
                     </td>
                   </tr>
                 );

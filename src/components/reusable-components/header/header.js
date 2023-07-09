@@ -16,7 +16,22 @@ const Header = () => {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const [mobile, setMobile] = useState(true);
-  const cart = cookies.get("Cart");
+
+  const [cart, setCart] = useState([]);
+
+  const checkCookie = (function () {
+    let lastCookie = cookies.get("Cart");
+
+    return function () {
+      const currentCookie = cookies.get("Cart");
+
+      if (currentCookie !== lastCookie) {
+        setCart(currentCookie);
+      }
+    };
+  })();
+
+  window.setInterval(checkCookie, 100);
   const click = () => {
     setMobile(!mobile);
   };
@@ -40,8 +55,11 @@ const Header = () => {
                 onClick={() => {
                   navigate("/shopping-cart");
                 }}>
-                <img src={Cart} alt="cart" />
-                <p>My Cart {cart?.length !== 0 ? cart !== undefined ? <sup>{cart.length}</sup> : null : null}</p>
+                <div className="header-cart-img">
+                  <img src={Cart} alt="cart" />
+                  {cart?.length !== 0 ? cart !== undefined ? <span>{cart.length}</span> : null : null}
+                </div>
+                <p>My Cart</p>
               </div>
             </div>
           </div>
@@ -52,7 +70,13 @@ const Header = () => {
           <div className="header-wrapper">
             <div className="header-logo">
               <div className="header-img">
-                <img src={Logo} alt="logo" />
+                <img
+                  src={Logo}
+                  alt="logo"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                />
               </div>
               {mobile ? <img src={Bars} alt="bars" onClick={click} /> : <img src={Close} alt="close" onClick={click} />}
             </div>

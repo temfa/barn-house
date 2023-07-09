@@ -49,7 +49,7 @@ const LandingProducts = () => {
               );
             })}
           </div>
-          {data.length === 0 ? null : <NavLink>View More</NavLink>}
+          {data.length === 0 ? null : <NavLink to="/products">View More</NavLink>}
         </div>
       )}
     </Layout>

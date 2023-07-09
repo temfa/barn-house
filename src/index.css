@@ -42,11 +42,11 @@ table {
     width: 100%;
   }
   .table tr {
-    margin-bottom: 15px;
+    border-bottom: 1px solid #5c59e8;
   }
   .table td {
     padding: 12px 0px 12px 50%;
-    text-align: left;
+    text-align: right;
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -55,7 +55,7 @@ table {
     content: attr(data-label);
     position: absolute;
     left: 0;
-    width: 50%;
+    width: 45%;
     padding-left: 15px;
     font-size: 15px;
     font-weight: bold;

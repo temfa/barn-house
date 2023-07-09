@@ -15,6 +15,7 @@ import ProductList from "./pages/admin/product-list/productList";
 import AddProducts from "./pages/admin/add-products/addProducts";
 import Orders from "./pages/admin/orders/orders";
 import SingleOrder from "./pages/admin/single-order/singleOrder";
+import EditProduct from "./pages/admin/edit-products/editProducts";
 
 const App = () => {
   const variants = {
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/faq" element={<Faq />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/edit-product" element={<EditProduct />} />
             <Route path="/admin/orders" element={<Orders />} />
             <Route path="/admin/single-order" element={<SingleOrder />} />
             <Route path="/admin/product-list" element={<ProductList />} />

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 const OrdersPage = () => {
   const navigate = useNavigate();
   const [data, setData] = useState();
+  const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
@@ -34,7 +35,19 @@ const OrdersPage = () => {
   return (
     <div className="orders-page-container">
       <ToastContainer />
-      <h2>Orders</h2>
+      <div className="orders-page-header">
+        <h2>Orders</h2>
+        <select
+          onChange={(e) => {
+            setStatus(e.target.value);
+          }}>
+          <option value="">All</option>
+          <option value="Processing">Processing</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
       <div className="orders-page-table">
         <div className="orders-table-head">
           <p>Order ID</p>
@@ -43,7 +56,7 @@ const OrdersPage = () => {
           <p>Customer</p>
           <p>Total</p>
           <p>Status</p>
-          <p>Action</p>
+          {/* <p>Action</p> */}
         </div>
         {loading ? (
           <Loader />
@@ -51,21 +64,28 @@ const OrdersPage = () => {
           <p className="no-orders">You don't have any Orders!!!!</p>
         ) : (
           <>
-            {Object.entries(data)?.map((item, index) => {
-              return (
-                <OrdersTable
-                  name={`${item[1].lastName}  ${item[1].firstName}`}
-                  key={index}
-                  number={item[1].phone}
-                  total={item[1].subTotal}
-                  date={item[1].date}
-                  id={item[1].id}
-                  productName={item[1].cart[0].name}
-                  status={item[1].status}
-                  cart={item[1].cart}
-                />
-              );
-            })}
+            {Object.entries(data)
+              ?.sort((x, y) => {
+                let a = new Date(x[1].date),
+                  b = new Date(y[1].date);
+                return b - a;
+              })
+              ?.filter((el) => el[1]?.status.toLowerCase().includes(status.toLowerCase()))
+              ?.map((item, index) => {
+                return (
+                  <OrdersTable
+                    name={`${item[1].lastName}  ${item[1].firstName}`}
+                    key={index}
+                    number={item[1].phone}
+                    total={item[1].subTotal}
+                    date={item[1].date}
+                    id={item[1].id}
+                    productName={item[1].cart[0].name}
+                    status={item[1].status}
+                    cart={item[1].cart}
+                  />
+                );
+              })}
             <table className="table">
               <tbody>
                 {Object.entries(data)?.map((items, index) => {

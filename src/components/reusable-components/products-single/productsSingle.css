@@ -13,6 +13,65 @@
 
 .products-single-container div:last-child {
   width: 19%;
+  position: relative;
+}
+
+.products-single-container div:last-child img {
+  cursor: pointer;
+}
+
+.disput {
+  padding: 20px;
+  box-sizing: border-box;
+  left: -20px;
+  width: 200px !important;
+  border-radius: 20px;
+  display: block !important;
+  position: absolute !important;
+  background: white;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0px 0px 27px 4px rgba(204, 204, 204, 0.2);
+}
+
+.disput button {
+  width: 45%;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.disput div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100% !important;
+  margin-top: 10px;
+}
+
+.disput div button:first-child {
+  box-sizing: border-box;
+  background: var(--secondary-red-red-50, #feedec);
+  color: var(--secondary-red-red-500, #f04438);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+}
+
+.disput div button:last-child {
+  box-sizing: border-box;
+  background: var(--secondary-green-green-50, #e7f4ee);
+  color: var(--secondary-green-green-500, #0d894f);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.07px;
 }
 
 .products-single-container p:nth-child(2),
@@ -28,6 +87,7 @@
 .products-single-container div:first-child {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .products-single-container div:first-child img {

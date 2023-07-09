@@ -21,10 +21,8 @@ const DashboardBody = () => {
       if (data !== null) {
         setLoading(false);
         if (data.orders !== undefined) {
+          setProcess(Object.entries(data.orders));
           Object.entries(data.orders).map((item) => {
-            if (item[1].status === "Processing") {
-              setProcess((arr) => [...arr, `${arr.length}`]);
-            }
             if (item[1].status === "Delivered") {
               setRevenue((arr) => [...arr, item[1]]);
             }
@@ -58,7 +56,7 @@ const DashboardBody = () => {
             <div className="cart">
               <img src={Cart} alt="cash" />
             </div>
-            <p>Total Pending Orders</p>
+            <p>Total Orders</p>
             <h2>{process.length}</h2>
           </div>
           <div className="dashboard-body-single">

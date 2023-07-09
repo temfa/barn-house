@@ -1,18 +1,18 @@
 import React from "react";
 import "./ordersTable.css";
-import Delete from "../../../assets/trash.svg";
+// import Delete from "../../../assets/trash.svg";
 import { formatter } from "../../../utils/formatter/formatter";
 import { useNavigate } from "react-router-dom";
-import { db } from "../../../utils/firebase/firebase-config";
-import { ref, remove } from "firebase/database";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { db } from "../../../utils/firebase/firebase-config";
+// import { ref, remove } from "firebase/database";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const OrdersTable = ({ id, productName, date, name, number, total, status, cart }) => {
   const navigate = useNavigate();
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="orders-table-container">
         <p>#{id}</p>
         <p
@@ -35,7 +35,7 @@ const OrdersTable = ({ id, productName, date, name, number, total, status, cart 
         <p>
           <span className={status === "Shipped" ? "shipped" : status === "Delivered" ? "delivered" : status === "Cancelled" ? "cancelled" : "processing"}>{status}</span>
         </p>
-        <div className="action">
+        {/* <div className="action">
           <img
             src={Delete}
             alt="delete"
@@ -45,7 +45,7 @@ const OrdersTable = ({ id, productName, date, name, number, total, status, cart 
               });
             }}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -21,7 +21,7 @@
 }
 
 .header-details,
-.header-cart div {
+.header-cart > div {
   display: flex;
   align-items: center;
 }
@@ -33,7 +33,7 @@
 }
 
 .header-details div p,
-.header-cart div p,
+.header-cart > div p,
 .header-details div a {
   font-size: 16px;
   line-height: 18.75px;
@@ -44,6 +44,25 @@
 
 .header-cart div {
   cursor: pointer;
+}
+
+.header-cart-img {
+  position: relative !important;
+}
+
+.header-cart span {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  color: #5d5e8f;
+  z-index: 2222;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
 }
 
 .header-body {
@@ -64,6 +83,7 @@
 
 .header-img {
   width: 100%;
+  cursor: pointer;
 }
 
 .header-img img {

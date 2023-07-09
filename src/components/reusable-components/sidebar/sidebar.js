@@ -15,7 +15,7 @@ const Sidebar = ({ click, action }) => {
   const location = useLocation();
   const cookies = new Cookies();
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState([]);
   const [color1, setColor1] = useState("#667085");
   const [color2, setColor2] = useState("#667085");
   const [color3, setColor3] = useState("#667085");
@@ -25,12 +25,17 @@ const Sidebar = ({ click, action }) => {
       const data = snapshot.val();
       if (data !== null) {
         if (data.orders !== undefined) {
-          setCount(Object.entries(data.orders).length);
+          Object.entries(data.orders).map((item) => {
+            if (item[1].status === "Processing") {
+              setCount((arr) => [...arr, `${arr.length}`]);
+            }
+            return item;
+          });
         } else {
-          setCount(0);
+          setCount([]);
         }
       } else {
-        setCount(0);
+        setCount([]);
       }
     });
   }, []);
@@ -103,7 +108,7 @@ const Sidebar = ({ click, action }) => {
                 {item.img}
                 <p>{item.name}</p>
               </div>
-              {item.name === "Orders" ? <span>{count}</span> : null}
+              {item.name === "Orders" ? <span>{count.length}</span> : null}
             </NavLink>
           );
         })}
