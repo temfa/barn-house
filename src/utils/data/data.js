@@ -28,7 +28,7 @@ export const navbar = [
 
 export const offers = [
   {
-    title: "Free Delivery",
+    title: "Door Step Delivery",
     text: "At Barn House, we prioritize fast delivery as a core component of our service. We are committed to delivering your orders swiftly, ensuring your satisfaction and convenience.",
     img: Delivery,
   },
@@ -1066,3 +1066,5 @@ export const faq = [
     answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
   },
 ];
+
+export const currenc = ["Naira", "Pound"];

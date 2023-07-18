@@ -39,6 +39,7 @@ const LandingProducts = () => {
                 <div className="landing-products-single" key={index}>
                   <SingleProducts
                     price={item[1].price}
+                    pricep={item[1].priceP}
                     discount={item[1].discountPrice}
                     name={item[1].productName}
                     img={item[1].firstImg}

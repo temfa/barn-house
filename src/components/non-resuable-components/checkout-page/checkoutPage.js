@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./checkoutPage.css";
 import Layout from "../../../utils/layout/layout";
-import { formatter } from "../../../utils/formatter/formatter";
+import { formatter, formatterP } from "../../../utils/formatter/formatter";
 import Cookies from "universal-cookie";
 import { location } from "../../../utils/data/data";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ const CheckoutPage = () => {
   const cookies = new Cookies();
   const navigate = useNavigate();
   const cart = cookies.get("Cart");
+  const currency = cookies.get("Cur") === undefined ? "Naira" : cookies.get("Cur");
   const [subTotal, setSubTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [state, setState] = useState("Lagos");
@@ -66,6 +67,7 @@ const CheckoutPage = () => {
       cart,
       subTotal,
       status: "Processing",
+      currency: currency,
       date: new Date().toDateString(),
     });
     cookies.set("Cart", []);
@@ -190,7 +192,7 @@ const CheckoutPage = () => {
         <div className="checkout-page-price">
           <div className="cart-checkout-single">
             <h2>Subtotal</h2>
-            <p>{formatter.format(subTotal)}</p>
+            {currency === "Naira" ? <p>{formatter.format(subTotal)}</p> : currency === "Pound" ? <p>{formatterP.format(subTotal)}</p> : null}
           </div>
           <div className="cart-checkout-single">
             <h2>Shipping</h2>

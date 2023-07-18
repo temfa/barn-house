@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./header.css";
 import Layout from "../../../utils/layout/layout";
-import Envelope from "../../../assets/envelope.svg";
+// import Envelope from "../../../assets/envelope.svg";
 import Phone from "../../../assets/phone.svg";
 import Cart from "../../../assets/cart.svg";
+import Cur from "../../../assets/cur.svg";
 import Navbar from "../../non-resuable-components/navbar/navbar";
 import Search from "../../../assets/search.svg";
 import Bars from "../../../assets/bars.svg";
@@ -11,11 +12,15 @@ import Close from "../../../assets/times.svg";
 import Logo from "../../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import OutsideClick from "../outsideClick/outsideClick";
+import { currenc } from "../../../utils/data/data";
 
 const Header = () => {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const [mobile, setMobile] = useState(true);
+  const [cur, setCur] = useState(false);
+  const [currency, setCurrency] = useState(cookies.get("Cur") === undefined ? "Naira" : cookies.get("Cur"));
 
   const [cart, setCart] = useState([]);
 
@@ -41,25 +46,66 @@ const Header = () => {
         <Layout>
           <div className="header-bar">
             <div className="header-details">
-              <div>
+              {/* <div>
                 <img src={Envelope} alt="envelope" />
                 <a href="mailto:barnhouseagrointegrated@gmail.com">Mail us</a>
-              </div>
+              </div> */}
               <div>
                 <img src={Phone} alt="phone" />
-                <p>Call us</p>
+                <p
+                  onClick={() => {
+                    navigate("/contact");
+                  }}>
+                  Contact Us
+                </p>
               </div>
             </div>
-            <div className="header-cart">
-              <div
-                onClick={() => {
-                  navigate("/shopping-cart");
-                }}>
-                <div className="header-cart-img">
-                  <img src={Cart} alt="cart" />
-                  {cart?.length !== 0 ? cart !== undefined ? <span>{cart.length}</span> : null : null}
+            <div className="heading-cur">
+              <div className="header-cart">
+                <div
+                  onClick={() => {
+                    setCur(!cur);
+                  }}>
+                  <p>{currency}</p>
+                  <div className="header-cart-img">
+                    <img src={Cur} alt="cart" />
+                  </div>
                 </div>
-                <p>My Cart</p>
+                {cur ? (
+                  <OutsideClick
+                    onClickOutside={() => {
+                      setCur(false);
+                    }}>
+                    <div className="cur-options">
+                      {currenc?.map((item, index) => {
+                        return (
+                          <p
+                            key={index}
+                            onClick={() => {
+                              setCurrency(item);
+                              cookies.set("Cur", item);
+                              setCur(false);
+                              window.location.reload();
+                            }}>
+                            {item}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  </OutsideClick>
+                ) : null}
+              </div>
+              <div className="header-cart">
+                <div
+                  onClick={() => {
+                    navigate("/shopping-cart");
+                  }}>
+                  <div className="header-cart-img">
+                    <img src={Cart} alt="cart" />
+                    {cart?.length !== 0 ? cart !== undefined ? <span>{cart.length}</span> : null : null}
+                  </div>
+                  <p>My Cart</p>
+                </div>
               </div>
             </div>
           </div>

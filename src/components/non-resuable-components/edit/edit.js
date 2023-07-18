@@ -12,6 +12,7 @@ const Edit = () => {
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
   const [basePrice, setBasePrice] = useState("");
+  const [basePriceP, setBasePriceP] = useState("");
   const [discount, setDiscount] = useState("");
   const [uniqueName, setUniqueName] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -28,7 +29,7 @@ const Edit = () => {
       const data = snapshot.val();
       if (data !== null) {
         setLoading(false);
-        Object.entries(data.products).filter((item) => {
+        Object.entries(data?.products).filter((item) => {
           if (item[1].productName === name) {
             setProductName(item[1].productName);
             setDescription(item[1].description);
@@ -107,7 +108,7 @@ const Edit = () => {
       <div className="new-product-wrapper">
         <h2>Pricing</h2>
         <div className="form-group">
-          <label>Base Price</label>
+          <label>Base Price(Naira)</label>
           <input
             type="text"
             placeholder="Type base price here. . ."
@@ -118,10 +119,21 @@ const Edit = () => {
           />
         </div>
         <div className="form-group">
-          <label>Discount</label>
+          <label>Base Price(Pounds)</label>
           <input
             type="text"
-            placeholder="Type discount . . ."
+            placeholder="Type base price here. . ."
+            value={basePriceP}
+            onChange={(e) => {
+              setBasePriceP(e.target.value);
+            }}
+          />
+        </div>
+        <div className="form-group">
+          <label>Discount Percentage(%)</label>
+          <input
+            type="text"
+            placeholder="Type discount percentage. . ."
             value={discount}
             onChange={(e) => {
               setDiscount(e.target.value);
@@ -171,6 +183,7 @@ const Edit = () => {
               description,
               discountPrice: discount,
               price: basePrice,
+              priceP: basePriceP,
               uniqueName,
             });
             toast.success("Updated Successfully");

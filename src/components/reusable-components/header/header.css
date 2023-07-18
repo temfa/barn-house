@@ -42,11 +42,13 @@
   text-decoration: none;
 }
 
-.header-cart div {
+.header-cart div,
+.header-details div {
   cursor: pointer;
 }
 
-.header-cart-img {
+.header-cart-img,
+.header-cart {
   position: relative !important;
 }
 
@@ -63,6 +65,30 @@
   height: 15px;
   border-radius: 50%;
   background-color: white;
+}
+
+.heading-cur {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.cur-options {
+  position: absolute;
+  top: 20px;
+  background-color: #5d5e8f;
+  z-index: 10;
+  flex-direction: column;
+  display: flex;
+  gap: 16px;
+  padding: 8px;
+  box-sizing: border-box;
+  align-items: flex-start !important;
+}
+
+.cur-options p {
+  display: block;
+  margin-left: 0px !important;
 }
 
 .header-body {

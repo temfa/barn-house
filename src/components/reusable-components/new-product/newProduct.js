@@ -12,10 +12,12 @@ const NewProduct = () => {
   const myref = useRef();
   const [loading, setLoading] = useState(false);
   const [productName, setProductName] = useState("");
+  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [firstImage, setFirstImage] = useState("");
   const [secondImage, setSecondImage] = useState("");
   const [basePrice, setBasePrice] = useState("");
+  const [basePriceP, setBasePriceP] = useState("");
   const [discount, setDiscount] = useState("");
   const [uniqueName, setUniqueName] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -73,16 +75,20 @@ const NewProduct = () => {
       description,
       discountPrice: discount,
       price: basePrice,
+      priceP: basePriceP,
       uniqueName,
+      category,
       date: new Date().toDateString(),
     });
     setLoading(false);
     setBasePrice("");
+    setBasePriceP("");
     setDescription("");
     setDiscount("");
     setFirstImage("");
     // setFirstImageUrl("");
     setProductName("");
+    setCategory("");
     setQuantity("");
     setSecondImage("");
     // setSecondImageUrl("");
@@ -96,16 +102,33 @@ const NewProduct = () => {
       <h2>Add Product</h2>
       <div className="new-product-wrapper">
         <h2>General Information</h2>
-        <div className="form-group">
-          <label>Product Name</label>
-          <input
-            type="text"
-            placeholder="Type product name here. . ."
-            value={productName}
-            onChange={(e) => {
-              setProductName(e.target.value);
-            }}
-          />
+        <div className="inventory-wrapper">
+          <div>
+            <div className="form-group">
+              <label>Product Name</label>
+              <input
+                type="text"
+                placeholder="Type product name here. . ."
+                value={productName}
+                onChange={(e) => {
+                  setProductName(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="form-group">
+              <label>Category</label>
+              <select
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}>
+                <option value="">Select Category</option>
+                <option value="Produce">Produce</option>
+                <option value="Spices">Spices</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div className="form-group">
           <label>Description</label>
@@ -151,7 +174,7 @@ const NewProduct = () => {
       <div className="new-product-wrapper">
         <h2>Pricing</h2>
         <div className="form-group">
-          <label>Base Price</label>
+          <label>Base Price(Naira)</label>
           <input
             type="text"
             placeholder="Type base price here. . ."
@@ -162,10 +185,21 @@ const NewProduct = () => {
           />
         </div>
         <div className="form-group">
-          <label>Discount</label>
+          <label>Base Price(Pound)</label>
           <input
             type="text"
-            placeholder="Type discount . . ."
+            placeholder="Type base price here. . ."
+            value={basePriceP}
+            onChange={(e) => {
+              setBasePriceP(e.target.value);
+            }}
+          />
+        </div>
+        <div className="form-group">
+          <label>Discount Percentage(%)</label>
+          <input
+            type="text"
+            placeholder="Type discount percentage . . ."
             value={discount}
             onChange={(e) => {
               setDiscount(e.target.value);

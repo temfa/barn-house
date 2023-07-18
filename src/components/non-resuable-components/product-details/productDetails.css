@@ -72,6 +72,15 @@
   line-height: 29px;
 }
 
+.product-details-text h4 {
+  color: var(--text, #151875);
+  font-size: 16px;
+  margin-top: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 29px;
+}
+
 .product-details-text button {
   background-color: transparent;
   color: var(--text, #151875);

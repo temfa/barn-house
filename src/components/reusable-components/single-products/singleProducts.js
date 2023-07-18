@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./singleProducts.css";
-import { formatter } from "../../../utils/formatter/formatter";
+import { formatter, formatterP } from "../../../utils/formatter/formatter";
 import Search from "../../../assets/search-plus.svg";
 import Cart from "../../../assets/cart-blue.svg";
 import Lightbox from "react-image-lightbox";
@@ -9,15 +9,16 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "universal-cookie";
 
-const SingleProducts = ({ price, discount, name, img, quantity, uniqueName }) => {
-  const [active, setActive] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+const SingleProducts = ({ price, discount, name, img, quantity, uniqueName, pricep }) => {
   const navigate = useNavigate();
   const cookies = new Cookies();
+  const currency = cookies.get("Cur") === undefined ? "Naira" : cookies.get("Cur");
+  const [active, setActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const data = [
     {
       name,
-      price: price - discount,
+      price: currency === "Naira" ? price - (discount / 100) * price : currency === "Pound" ? pricep - (discount / 100) * pricep : null,
       img,
       count: 1,
       quantity,
@@ -43,9 +44,15 @@ const SingleProducts = ({ price, discount, name, img, quantity, uniqueName }) =>
         }}>
         {name}
       </h2>
-      <p>
-        {formatter.format(price - discount)} <span>{formatter.format(price)}</span>
-      </p>
+      {currency === "Naira" ? (
+        <p>
+          {formatter.format(price - (discount / 100) * price)} <span>{discount}% off</span>
+        </p>
+      ) : currency === "Pound" ? (
+        <p>
+          {formatterP.format(pricep - (discount / 100) * pricep)} <span>{discount}% off</span>
+        </p>
+      ) : null}
       {active ? (
         <div className="single-products-action">
           <img
@@ -71,7 +78,7 @@ const SingleProducts = ({ price, discount, name, img, quantity, uniqueName }) =>
                 } else {
                   tempData.push({
                     name,
-                    price: price - discount,
+                    price: currency === "Naira" ? price - (discount / 100) * price : currency === "Pound" ? pricep - (discount / 100) * pricep : null,
                     img,
                     count: 1,
                     quantity,

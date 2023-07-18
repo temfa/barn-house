@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./cartCheckout.css";
-import { formatter } from "../../../utils/formatter/formatter";
+import { formatter, formatterP } from "../../../utils/formatter/formatter";
 import Check from "../../../assets/check.svg";
 import { location } from "../../../utils/data/data";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 const CartCheckout = ({ cart }) => {
   const navigate = useNavigate();
@@ -11,6 +12,8 @@ const CartCheckout = ({ cart }) => {
   const [LocalGovt, setLocalGovt] = useState();
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
+  const cookies = new Cookies();
+  const currency = cookies.get("Cur") === undefined ? "Naira" : cookies.get("Cur");
   useEffect(() => {
     if (cart === undefined) {
       setSubTotal(0);
@@ -44,7 +47,7 @@ const CartCheckout = ({ cart }) => {
         <div className="cart-checkout-body">
           <div className="cart-checkout-single">
             <h2>Subtotal</h2>
-            <p>{formatter.format(subTotal)}</p>
+            {currency === "Naira" ? <p>{formatter.format(subTotal)}</p> : currency === "Pound" ? <p>{formatterP.format(subTotal)}</p> : null}
           </div>
           <div className="cart-checkout-single">
             <h2>Shipping</h2>
@@ -56,7 +59,7 @@ const CartCheckout = ({ cart }) => {
           </div>
           <div className="cart-checkout-single">
             <h2>Total</h2>
-            <p>{formatter.format(total)}</p>
+            {currency === "Naira" ? <p>{formatter.format(total)}</p> : currency === "Pound" ? <p>{formatterP.format(total)}</p> : null}
           </div>
           <h3>
             <span>

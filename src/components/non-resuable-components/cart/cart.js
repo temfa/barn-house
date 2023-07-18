@@ -8,10 +8,11 @@ import CartCheckout from "../cart-checkout/cartCheckout";
 
 const Cart = () => {
   const cookies = new Cookies();
-  const [cart, setCart] = useState(cookies === undefined ? [] : cookies.get("Cart"));
+  const [cart, setCart] = useState(cookies.get("Cart") === undefined ? [] : cookies.get("Cart"));
   useEffect(() => {
     cookies.set("Cart", cart);
   });
+  console.log(cart);
   return (
     <Layout>
       <ToastContainer />

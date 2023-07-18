@@ -17,7 +17,14 @@ const ProductsPage = () => {
       const data = snapshot.val();
       if (data !== null) {
         setLoading(false);
-        setData(data.products);
+        if (data.products === undefined) {
+          setData([]);
+        }
+        if (data.products !== null) {
+          setData(data.products);
+        } else {
+          setData({});
+        }
       } else {
         setLoading(false);
         setData([]);
@@ -57,6 +64,7 @@ const ProductsPage = () => {
                     <div className="products-page-single" key={index}>
                       <SingleProducts
                         price={item[1].price}
+                        pricep={item[1].priceP}
                         discount={item[1].discountPrice}
                         name={item[1].productName}
                         img={item[1].firstImg}

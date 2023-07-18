@@ -22,6 +22,9 @@ const ProductsTable = () => {
       const data = snapshot.val();
       if (data !== null) {
         setLoading(false);
+        if (data.products === undefined) {
+          setData([]);
+        }
         if (data.products !== null) {
           setData(data.products);
         } else {
@@ -37,20 +40,21 @@ const ProductsTable = () => {
   return (
     <div className="products-table-container">
       <ToastContainer />
-      <div className="products-table-header">
-        <p>Product</p>
-        <p>Stock</p>
-        <p>Price</p>
-        <p>Status</p>
-        <p>Added</p>
-        <p>Action</p>
-      </div>
+
       {loading ? (
         <Loader />
-      ) : data.length === 0 ? (
+      ) : data?.length === 0 ? (
         <p>You dont have any Product saved click on Add Product to get started</p>
       ) : (
         <>
+          <div className="products-table-header">
+            <p>Product</p>
+            <p>Stock</p>
+            <p>Price</p>
+            <p>Status</p>
+            <p>Added</p>
+            <p>Action</p>
+          </div>
           <div className="products-table-body">
             {Object.entries(data)
               ?.sort((x, y) => {
@@ -112,13 +116,13 @@ const ProductsTable = () => {
                             <h2>Are you sure you want to delete?</h2>
                             <div>
                               <button
-                                onClick={() => {
+                                onClick={async () => {
                                   // Create a reference to the file to delete
                                   const desertRef = imgref(storage, `images/${items[1].imageName}`);
                                   const desertRef2 = imgref(storage, `images/${items[1].imageName2}`);
 
                                   // Delete the file
-                                  deleteObject(desertRef)
+                                  await deleteObject(desertRef)
                                     .then(() => {
                                       deleteObject(desertRef2)
                                         .then(() => {
