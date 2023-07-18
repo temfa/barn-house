@@ -34,21 +34,23 @@ const LandingProducts = () => {
           <ToastContainer />
           <h2>Barn House Products</h2>
           <div className="landing-products-wrapper">
-            {Object.entries(data)?.map((item, index) => {
-              return (
-                <div className="landing-products-single" key={index}>
-                  <SingleProducts
-                    price={item[1].price}
-                    pricep={item[1].priceP}
-                    discount={item[1].discountPrice}
-                    name={item[1].productName}
-                    img={item[1].firstImg}
-                    quantity={item[1].quantity}
-                    uniqueName={item[1].uniqueName}
-                  />
-                </div>
-              );
-            })}
+            {Object.entries(data)
+              ?.slice(0, 3)
+              ?.map((item, index) => {
+                return (
+                  <div className="landing-products-single" key={index}>
+                    <SingleProducts
+                      price={item[1].price}
+                      pricep={item[1].priceP}
+                      discount={item[1].discountPrice}
+                      name={item[1].productName}
+                      img={item[1].firstImg}
+                      quantity={item[1].quantity}
+                      uniqueName={item[1].uniqueName}
+                    />
+                  </div>
+                );
+              })}
           </div>
           {data.length === 0 ? null : <NavLink to="/products">View More</NavLink>}
         </div>

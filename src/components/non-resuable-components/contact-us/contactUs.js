@@ -10,7 +10,7 @@ const ContactUs = () => {
   return (
     <Layout>
       <div className="contactus-container">
-        <div className="contactus-first">
+        {/* <div className="contactus-first">
           <div className="contactus-info">
             <h2>Information About us</h2>
             <p>
@@ -29,13 +29,13 @@ const ContactUs = () => {
                   <p>E-Mail:barnhouseagrointegrated@gmail.com</p>
                 </div>
               </div>
-              {/* <div className="contactus-contact-single">
+              <div className="contactus-contact-single">
                 <div className="pink-colour"></div>
                 <div>
                   <p>Support Forum</p>
                   <p>For over 24hr</p>
                 </div>
-              </div> */}
+              </div>
             </div>
             <div className="contactus-contact-wrapper">
               <div className="contactus-contact-single">
@@ -45,20 +45,23 @@ const ContactUs = () => {
                   <p>Great britain, 3NM98-LK</p>
                 </div>
               </div>
-              {/* <div className="contactus-contact-single">
+              <div className="contactus-contact-single">
                 <div className="green-colour"></div>
                 <div>
                   <p>Free standard shipping</p>
                   <p>on all orders.</p>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="contactus-second">
           <div className="get-in-touch">
             <h2>Get In Touch</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque ultrices tristique amet erat vitae eget dolor los vitae lobortis quis bibendum quam.</p>
+            <p>
+              We strive to respond to all inquiries promptly and provide you with the information or assistance you need. Whether you have a question about our products or
+              services, need technical support, want to explore partnership opportunities, or have any other concern, don't hesitate to reach out.
+            </p>
             <div className="contact-form">
               <div className="contact-form-double">
                 <div>

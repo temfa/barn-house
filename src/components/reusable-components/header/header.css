@@ -167,6 +167,16 @@
     cursor: pointer;
   }
 
+  .heading-cur {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .header-details div {
+    margin-right: 0px;
+  }
+
   .header-search {
     display: none;
   }

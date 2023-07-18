@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loader/loader";
 import Delete from "../../../assets/trash.svg";
-import { formatter } from "../../../utils/formatter/formatter";
+import { formatter, formatterP } from "../../../utils/formatter/formatter";
 import { useNavigate } from "react-router-dom";
 
 const OrdersPage = () => {
@@ -83,6 +83,7 @@ const OrdersPage = () => {
                     productName={item[1].cart[0].name}
                     status={item[1].status}
                     cart={item[1].cart}
+                    currency={item[1].currency}
                   />
                 );
               })}
@@ -102,7 +103,9 @@ const OrdersPage = () => {
                       <td data-label="Product">{items[1].cart[0].name}</td>
                       <td data-label="Date">{items[1].date}</td>
                       <td data-label="Customer">{`${items[1].lastName}  ${items[1].firstName}`}</td>
-                      <td data-label="Total">{formatter.format(items[1].subTotal)}</td>
+                      <td data-label="Total">
+                        {items[1].currency === "Naira" ? formatter.format(items[1].subTotal) : items[1].currency === "Pounds" ? formatterP.format(items[1].subTotal) : null}
+                      </td>
                       <td data-label="Status">
                         <span
                           className={

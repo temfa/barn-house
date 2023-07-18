@@ -59,7 +59,7 @@ const CartCheckout = ({ cart }) => {
           </div>
           <div className="cart-checkout-single">
             <h2>Total</h2>
-            {currency === "Naira" ? <p>{formatter.format(total)}</p> : currency === "Pound" ? <p>{formatterP.format(total)}</p> : null}
+            {currency === "Naira" ? <p>{formatter.format(subTotal)}</p> : currency === "Pound" ? <p>{formatterP.format(subTotal)}</p> : null}
           </div>
           <h3>
             <span>

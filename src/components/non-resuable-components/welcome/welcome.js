@@ -13,7 +13,10 @@ const Welcome = () => {
           <div className="welcome-text">
             <p>Best Food Item For Your Home....</p>
             <h2>New Food Item Trends in 2023</h2>
-            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.</h4>
+            <h4>
+              Welcome to Barn House, your premier destination for all your agro-related needs! At Barn House, we understand the vital role agriculture plays in our lives and the
+              importance of providing farmers, growers, and agricultural enthusiasts with a seamless online platform to access top-quality products and services.
+            </h4>
             <button
               onClick={() => {
                 navigate("/products");

@@ -100,6 +100,8 @@ const CheckoutPage = () => {
           description: item[1].description,
           discountPrice: item[1].discountPrice,
           price: item[1].price,
+          priceP: item[1].priceP,
+          category: item[1].category,
           uniqueName: item[1].uniqueName,
           date: item[1].date,
         });

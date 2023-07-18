@@ -1,14 +1,14 @@
 import React from "react";
 import "./ordersTable.css";
 // import Delete from "../../../assets/trash.svg";
-import { formatter } from "../../../utils/formatter/formatter";
+import { formatter, formatterP } from "../../../utils/formatter/formatter";
 import { useNavigate } from "react-router-dom";
 // import { db } from "../../../utils/firebase/firebase-config";
 // import { ref, remove } from "firebase/database";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
-const OrdersTable = ({ id, productName, date, name, number, total, status, cart }) => {
+const OrdersTable = ({ id, productName, date, name, number, total, status, cart, currency }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -31,7 +31,7 @@ const OrdersTable = ({ id, productName, date, name, number, total, status, cart 
           <h2>{name}</h2>
           <p>{number}</p>
         </div>
-        <p>{formatter.format(total)}</p>
+        <p>{currency === "Naira" ? formatter.format(total) : currency === "Pound" ? formatterP.format(total) : null}</p>
         <p>
           <span className={status === "Shipped" ? "shipped" : status === "Delivered" ? "delivered" : status === "Cancelled" ? "cancelled" : "processing"}>{status}</span>
         </p>

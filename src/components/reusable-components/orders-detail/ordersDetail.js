@@ -12,7 +12,7 @@ import Customer from "../../../assets/customer.svg";
 import Email from "../../../assets/email.svg";
 import Phone from "../../../assets/mobile.svg";
 import Pin from "../../../assets/pin.svg";
-import { formatter } from "../../../utils/formatter/formatter";
+import { formatter, formatterP } from "../../../utils/formatter/formatter";
 
 const OrdersDetails = ({ id }) => {
   const [data, setData] = useState();
@@ -171,23 +171,25 @@ const OrdersDetails = ({ id }) => {
                         </div>
                         <p>{item.name}</p>
                       </div>
-                      <p>{item.count} pcs</p>
-                      <p>{formatter.format(item.price)}</p>
-                      <p>{formatter.format(item.price * item.count)}</p>
+                      <p>{item.count} pc(s)</p>
+                      <p>{data?.currency === "Naira" ? formatter.format(item.price) : data?.currency === "Pound" ? formatterP.format(item.price) : null}</p>
+                      <p>
+                        {data?.currency === "Naira" ? formatter.format(item.price * item.count) : data?.currency === "Pound" ? formatterP.format(item.price * item.count) : null}
+                      </p>
                     </div>
                   );
                 })}
                 <div className="orders-details-total">
                   <p>Subtotal</p>
-                  <p>{formatter.format(subTotal)}</p>
+                  <p>{data?.currency === "Naira" ? formatter.format(subTotal) : data?.currency === "Pound" ? formatterP.format(subTotal) : null}</p>
                 </div>
                 <div className="orders-details-total">
                   <p>VAT</p>
-                  <p>{formatter.format(vat)}</p>
+                  <p>{data?.currency === "Naira" ? formatter.format(vat) : data?.currency === "Pound" ? formatterP.format(vat) : null}</p>
                 </div>
                 <div className="orders-details-total">
                   <p>Grand Total</p>
-                  <p className="grand-total">{formatter.format(total)}</p>
+                  <p className="grand-total">{data?.currency === "Naira" ? formatter.format(total) : data?.currency === "Pound" ? formatterP.format(total) : null}</p>
                 </div>
               </div>
             </div>

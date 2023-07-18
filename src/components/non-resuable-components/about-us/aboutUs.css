@@ -5,9 +5,12 @@
   margin: 54px 0px;
 }
 
-.aboutus-text,
-.aboutus-img {
+.aboutus-text {
   width: 47%;
+}
+
+.aboutus-img {
+  width: 30%;
 }
 
 .aboutus-img img {
