@@ -32,6 +32,7 @@ const CartCheckout = ({ cart }) => {
       }
     }
   }, [cart]);
+  console.log(total);
   useEffect(() => {
     location?.filter((item) => {
       if (item.state === state) {

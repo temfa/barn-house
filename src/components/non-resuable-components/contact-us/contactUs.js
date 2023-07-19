@@ -2,7 +2,7 @@ import React from "react";
 import "./contactUs.css";
 import Layout from "../../../utils/layout/layout";
 import Contact from "../../../assets/contact.png";
-import Colours from "../../../assets/colours.svg";
+// import Colours from "../../../assets/colours.svg";
 import Input from "../../reusable-components/input/input";
 import Button from "../../reusable-components/button/button";
 
