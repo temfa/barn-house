@@ -58,7 +58,11 @@ const ProductsPage = () => {
             </div>
             <div className="products-page-body">
               {Object.entries(data)
-                ?.filter((item) => item[1]?.productName.toLowerCase().includes(search.toLowerCase()))
+                ?.filter((item) =>
+                  item[1]?.productName
+                    .toLowerCase()
+                    .includes(search.toLowerCase())
+                )
                 ?.map((item, index) => {
                   return (
                     <div className="products-page-single" key={index}>
