@@ -19,6 +19,7 @@
 
 .faqbody-new {
   width: 48%;
+  height: 100vh;
   box-sizing: border-box;
   padding: 66px 75px 62px 46px;
   background: #f8f8fd;

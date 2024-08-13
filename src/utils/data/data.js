@@ -1050,20 +1050,79 @@ export const location = [
 
 export const faq = [
   {
-    title: "Eu dictumst cum at sed euismood condimentum?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+    title: "What is Barn House?",
+    answer:
+      "Barn House is your go-to online store for authentic Nigerian food items. We specialize in delivering high-quality, traditional Nigerian foods like garri, ofada rice, palm oil, and more, straight to your doorstep, whether you’re in Nigeria or abroad.",
   },
   {
-    title: "Eu dictumst cum at sed euismood condimentum?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+    title: "Do you ship internationally?",
+    answer:
+      "Yes, we do! Barn House proudly ships Nigerian food items to customers worldwide. We partner with reliable shipping services to ensure your products arrive fresh and in perfect condition.",
   },
   {
-    title: "Eu dictumst cum at sed euismood condimentum?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+    title: "How long does delivery take?",
+    answer:
+      "Delivery times vary depending on your location. For local deliveries within Nigeria, it typically takes 2-5 business days. International deliveries may take 7-14 business days, depending on the destination and customs processing times.",
   },
   {
-    title: "Eu dictumst cum at sed euismood condimentum?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+    title: "What payment methods do you accept?",
+    answer:
+      "We accept a variety of payment methods, including credit/debit cards, bank transfers, and popular online payment platforms like PayPal. All payments are securely processed to ensure your information is protected.",
+  },
+  {
+    title: "How do I know if my order was successful?",
+    answer:
+      "Once your order is placed, you’ll receive a confirmation email with your order details. You can also log into your Barn House account to view your order status at any time.",
+  },
+  {
+    title: "What should I do if I have issues with my order?",
+    answer:
+      "If you encounter any issues with your order, please contact our customer support team within 24 hours of receiving your products. We’re here to help resolve any concerns promptly.",
+  },
+  {
+    title: "Are your products organic?",
+    answer:
+      "Many of our products are sourced from organic farms in Nigeria, ensuring that you get the freshest and most natural ingredients. Product descriptions will indicate if a specific item is organic.",
+  },
+  {
+    title: "Do you offer discounts for bulk purchases?",
+    answer:
+      "Yes, we offer discounts on bulk purchases for certain items. Please check the product page for bulk pricing details or contact us directly for large orders.",
+  },
+  {
+    title: "How do I store my Nigerian food items?",
+    answer:
+      "Each product comes with storage instructions to ensure it stays fresh for as long as possible. Generally, items like garri and rice should be stored in a cool, dry place, while palm oil should be kept in a cool area away from direct sunlight.",
+  },
+  {
+    title: "What if a product is out of stock?",
+    answer:
+      "If a product is out of stock, you can sign up for a restock notification on the product page. We’ll send you an email as soon as it’s available again.",
+  },
+  {
+    title: "Do you offer gift cards?",
+    answer:
+      "Yes, we offer digital gift cards that can be purchased and sent to loved ones, making it easy to share the taste of Nigeria with friends and family.",
+  },
+  {
+    title: "Can I track my order?",
+    answer:
+      "Absolutely! Once your order is shipped, you’ll receive a tracking number via email. You can use this number to track your package until it arrives at your doorstep.",
+  },
+  {
+    title: "How are your products packaged?",
+    answer:
+      "We take great care in packaging our products to ensure they arrive fresh and undamaged. Each item is carefully sealed and packed in protective materials suitable for both local and international shipping.",
+  },
+  {
+    title: "Can I cancel or modify my order after placing it?",
+    answer:
+      "You can cancel or modify your order within 24 hours of placing it. After that, we may not be able to make changes as your order will be in the processing stage.",
+  },
+  {
+    title: "Do you have a physical store?",
+    answer:
+      "Currently, Barn House operates as an online-only store, allowing us to reach customers around the globe. However, we’re always exploring new opportunities to expand.",
   },
 ];
 
