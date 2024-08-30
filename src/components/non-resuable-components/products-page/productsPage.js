@@ -28,10 +28,11 @@ const ProductsPage = () => {
       } else {
         setLoading(false);
         setData([]);
-        toast.error("Something went wrong!!!Try again");
+        toast.error("Something went wrong!!! Try again");
       }
     });
   }, []);
+
   return (
     <Layout>
       {loading ? (
